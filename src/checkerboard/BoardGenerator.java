@@ -102,12 +102,13 @@ public class BoardGenerator {
     public double getRectangleHeight(){
         return rectangleHeight;
     }
-    
+    //unused
+    /*
     public void setColor(Color light, Color dark){
         lightColor = light;
         darkColor = dark;
     }
-    
+    */
     
     
     
