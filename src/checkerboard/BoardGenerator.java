@@ -17,6 +17,8 @@ import javafx.scene.layout.AnchorPane;
  */
 public class BoardGenerator {
     
+    private AnchorPane anchorPane = new AnchorPane();
+    
     private int numRows;
     private int numCols;
     private double boardHeight;
