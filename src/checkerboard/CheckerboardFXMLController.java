@@ -13,11 +13,10 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+import javafx.scene.paint.Color;
 /**
  * FXML Controller class
  *
@@ -32,12 +31,16 @@ public class CheckerboardFXMLController implements Initializable, Startable {
     @FXML
     private VBox vBox;
     
-    private int defRows, defCols = 8;
-    int rows, cols = 8;
-    private int grid1 = 16;
-    private int grid2 = 10;
-    private int grid3 = 8;
-    private int grid4 = 3;
+    //private int defRows, defCols = 8;
+    int rows = 8;
+    int cols = 8;
+    private final int grid1 = 16;
+    private final int grid2 = 10;
+    private final int grid3 = 8;
+    private final int grid4 = 3;
+    
+    private Color light = Color.RED;
+    private Color dark = Color.BLACK;
 
         /**
      * Initializes the controller class.
@@ -47,10 +50,12 @@ public class CheckerboardFXMLController implements Initializable, Startable {
         // TODO
     }
     
+    
     public void start(Stage stage){
         this.stage = stage;
-        
-        generator = new BoardGenerator(defRows, defCols, anchorPane.getWidth(), anchorPane.getHeight());
+        anchorPane.getChildren().clear();
+        //hardcoded default values, had difficulties passing the variables
+        generator = new BoardGenerator(8,8, anchorPane.getWidth(), anchorPane.getHeight());
         anchorPane.getChildren().add(generator.build());
         
         ChangeListener<Number> lambdaChangeListener = (ObservableValue<? extends Number> observable, Number oldValue, final Number newValue) -> {
@@ -67,7 +72,7 @@ public class CheckerboardFXMLController implements Initializable, Startable {
     private void refresh(int rows, int cols){
         anchorPane.getChildren().clear();
         
-         generator = new BoardGenerator(rows, cols, anchorPane.getWidth(), anchorPane.getHeight());
+         generator = new BoardGenerator(rows, cols, anchorPane.getWidth(), anchorPane.getHeight(), light, dark);
         anchorPane.getChildren().add(generator.build());
         
     }
@@ -99,10 +104,19 @@ public class CheckerboardFXMLController implements Initializable, Startable {
     
     @FXML
     private void handleDefault(ActionEvent event){
-       
+      colorChanger(Color.RED,Color.BLACK); 
     } 
     @FXML
     private void handleBlue(ActionEvent event){
-       
-    } 
+        colorChanger(Color.SKYBLUE,Color.DARKBLUE);
+    }
+    
+    private void colorChanger(Color lightColor, Color darkColor){
+         anchorPane.getChildren().clear();
+        light = lightColor;
+        dark = darkColor;
+         generator = new BoardGenerator(generator.getNumRows(), generator.getNumCols(), anchorPane.getWidth(), anchorPane.getHeight(), lightColor, darkColor);
+        anchorPane.getChildren().add(generator.build());
+        //generator.setColor(lightColor, darkColor);
+    }
 }

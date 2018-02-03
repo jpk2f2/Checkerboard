@@ -23,8 +23,8 @@ public class BoardGenerator {
     private int numCols;
     private double boardHeight;
     private double boardWidth;
-    private Color lightColor = Color.RED;
-    private Color darkColor = Color.BLACK;
+    private Color lightColor; //= Color.RED;
+    private Color darkColor; //= Color.BLACK;
     private double rectangleWidth;
     private double rectangleHeight;
     
@@ -101,6 +101,11 @@ public class BoardGenerator {
     
     public double getRectangleHeight(){
         return rectangleHeight;
+    }
+    
+    public void setColor(Color light, Color dark){
+        lightColor = light;
+        darkColor = dark;
     }
     
     
