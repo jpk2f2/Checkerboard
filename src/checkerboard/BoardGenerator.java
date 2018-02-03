@@ -23,8 +23,8 @@ public class BoardGenerator {
     private int numCols;
     private double boardHeight;
     private double boardWidth;
-    private Color lightColor; //= Color.RED;
-    private Color darkColor; //= Color.BLACK;
+    private Color lightColor = Color.RED;
+    private Color darkColor = Color.BLACK;
     private double rectangleWidth;
     private double rectangleHeight;
     
