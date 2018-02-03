@@ -46,35 +46,35 @@ public class BoardGenerator {
     }
     
     public int getNumRows(){
-        
+        return numRows;
     }
     
     public int getNumCols(){
-       
+       return numCols;
     }
     
     public double getWidth(){
-        
+        return boardWidth;
     }
     
     public double getHeight(){
-        
+        return boardHeight;
     }
     
     public Color getLightColor(){
-        
+        return lightColor;
     }
     
     public Color getDarkColor(){
-        
+        return darkColor;
     }
     
     public double getRectangleWidth(){
-        
+        return rectangleWidth;
     }
     
     public double getRectangleHeight(){
-        
+        return rectangleHeight;
     }
     
     
