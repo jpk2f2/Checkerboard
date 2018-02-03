@@ -23,7 +23,8 @@ public class BoardGenerator {
     private double boardWidth;
     private Color lightColor;
     private Color darkColor;
-    
+    private double rectangleWidth;
+    private double rectangleHeight;
     
     
     public BoardGenerator(int numRows, int numCol, double boardWidth, double boardHeight){
@@ -43,6 +44,39 @@ public class BoardGenerator {
                return anchorPane;
         return null;   
     }
+    
+    public int getNumRows(){
+        
+    }
+    
+    public int getNumCols(){
+       
+    }
+    
+    public double getWidth(){
+        
+    }
+    
+    public double getHeight(){
+        
+    }
+    
+    public Color getLightColor(){
+        
+    }
+    
+    public Color getDarkColor(){
+        
+    }
+    
+    public double getRectangleWidth(){
+        
+    }
+    
+    public double getRectangleHeight(){
+        
+    }
+    
     
     
 }
