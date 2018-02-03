@@ -23,8 +23,8 @@ public class BoardGenerator {
     private int numCols;
     private double boardHeight;
     private double boardWidth;
-    private Color lightColor;
-    private Color darkColor;
+    private Color lightColor = Color.RED;
+    private Color darkColor = Color.BLACK;
     private double rectangleWidth;
     private double rectangleHeight;
     
@@ -47,16 +47,19 @@ public class BoardGenerator {
         clear();
         rectangleWidth = Math.ceil(boardWidth / (double)numCols);
         rectangleHeight = Math.ceil(boardHeight / (double)numRows); 
+        Color temp;
+        for(int i = 0; i < numRows; i++){
+            for(int j = 0; j < numCols; j++){
         
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                Rectangle box = new Rectangle(rectangleWidth,rectangleHeight,lightColor);
+                temp = ((i%2)==(j%2)) ? lightColor : darkColor; //switched to ternary cause it's prettier
+                Rectangle box = new Rectangle(rectangleWidth,rectangleHeight,temp);
                 box.setX(rectangleWidth * j);
                 box.setY(rectangleHeight * i);
                 anchorPane.getChildren().add(box);
             }
-        }
-        return anchorPane;
+        }        
+        return GetBoard();        
+    
     }
     
     public void clear(){
