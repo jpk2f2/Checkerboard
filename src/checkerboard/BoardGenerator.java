@@ -30,17 +30,38 @@ public class BoardGenerator {
     
     
     public BoardGenerator(int numRows, int numCol, double boardWidth, double boardHeight){
-        
+        this.numRows = numRows;
+        this.numCols = numCol;
+        this.boardWidth = boardWidth;
+        this.boardHeight = boardHeight;
     }
     
     public BoardGenerator(int numRows, int numCol, double boardWidth, double boardHeight, Color lightColor, Color darkColor){
+        this(numRows, numCol,boardWidth,boardHeight); //moved to top due to error
+        this.lightColor = lightColor;
+        this.darkColor = darkColor;
         
     }
     
     public AnchorPane build(){
+        clear();
+        rectangleWidth = Math.ceil(boardWidth / (double)numCols);
+        rectangleHeight = Math.ceil(boardHeight / (double)numRows); 
         
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                Rectangle box = new Rectangle(rectangleWidth,rectangleHeight,lightColor);
+                box.setX(rectangleWidth * j);
+                box.setY(rectangleHeight * i);
+                anchorPane.getChildren().add(box);
+            }
+        }
+        return anchorPane;
     }
     
+    public void clear(){
+        anchorPane.getChildren().clear();
+    }
     public AnchorPane GetBoard(){
         if(anchorPane != null)
                return anchorPane;
@@ -78,6 +99,8 @@ public class BoardGenerator {
     public double getRectangleHeight(){
         return rectangleHeight;
     }
+    
+    
     
     
     
