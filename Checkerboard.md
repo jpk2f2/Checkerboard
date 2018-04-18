@@ -1,4 +1,6 @@
-###   Retrospective: CheckerBoard
+
+<h1 align="center">Retrospective: CheckerBoard</center></h1>
+
 
 1. I did quite well on this assigment, and met every requirement. I got intellgently alternating the colors correct, as well as altering the board from the UI. There was nothing done wrong in my work, however there was one thing that was done much better in the solution. For my project, the board only resizes properly when done with the "pull arrow" on an edge. If the maximise button is use, the board remains the same size and is surrounded by white space. If it is restored to a window, the board becomes distorted and goes outside the scope of the window. Once it is resized with the arrow, the board is fixed. This is due to how the size of the board is calculated, as it does not get the new height and width when the maximise button is used. Resizing the board appopriately was the hardest part.
 
